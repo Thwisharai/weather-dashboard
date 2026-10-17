@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard — Thwisha Rai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="app-header">
+    <h1>Weather Dashboard</h1>
+    <p class="tagline">Live conditions for any city, fetched from a public weather API.</p>
+  </header>
+
+  <main id="main-content">
+    <form id="search-form" class="search-form">
+      <label for="city-input" class="visually-hidden">City name</label>
+      <input
+        type="text"
+        id="city-input"
+        name="city"
+        placeholder="Search a city… e.g. Mysuru"
+        autocomplete="off"
+        required
+      >
+      <button type="submit" id="search-btn">Search</button>
+    </form>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <p id="error" class="error-msg" role="alert" hidden></p>
+
+    <section id="result" class="result-card" hidden aria-labelledby="result-city">
+      <div class="result-top">
+        <div>
+          <h2 id="result-city"></h2>
+          <p id="result-meta" class="result-meta"></p>
+        </div>
+        <div class="result-icon" aria-hidden="true">
+          <span id="weather-icon"></span>
+        </div>
+      </div>
+
+      <p class="temperature">
+        <span id="temp-value"></span><span class="temp-unit">°C</span>
+      </p>
+      <p id="weather-desc" class="weather-desc"></p>
+
+      <dl class="metrics">
+        <div class="metric">
+          <dt>Humidity</dt>
+          <dd id="humidity-value">—</dd>
+        </div>
+        <div class="metric">
+          <dt>Wind speed</dt>
+          <dd id="wind-value">—</dd>
+        </div>
+        <div class="metric">
+          <dt>Feels like</dt>
+          <dd id="feels-value">—</dd>
+        </div>
+      </dl>
+
+      <p id="updated-at" class="updated-at"></p>
+    </section>
+
+    <section id="recent-section" class="recent-section" hidden aria-labelledby="recent-title">
+      <h2 id="recent-title">Recent searches</h2>
+      <ul id="recent-list" class="recent-list"></ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Weather and location data from <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. Built with the Fetch API and async/await — no framework, no API key.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
